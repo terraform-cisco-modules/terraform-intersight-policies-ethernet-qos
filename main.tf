@@ -14,7 +14,7 @@ data "intersight_organization_organization" "org_moid" {
 # GUI Location: Policies > Create Policy > Ethernet QoS
 #__________________________________________________________________
 
-resource "intersight_vnic_eth_qos_policy" "vnic_qos" {
+resource "intersight_vnic_eth_qos_policy" "ethernet_qos" {
   depends_on = [
     data.intersight_organization_organization.org_moid
   ]
