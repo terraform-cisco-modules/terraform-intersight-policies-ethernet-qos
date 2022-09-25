@@ -33,7 +33,7 @@ variable "mtu" {
   type        = number
 }
 
-vvariable "name" {
+variable "name" {
   default     = "default"
   description = "Name for the Policy."
   type        = string
@@ -45,7 +45,7 @@ variable "organization" {
   type        = string
 }
 
-ariable "priority" {
+variable "priority" {
   default     = "Best Effort"
   description = <<-EOT
     The priortity matching the System QoS specified in the fabric profile.  Options are:

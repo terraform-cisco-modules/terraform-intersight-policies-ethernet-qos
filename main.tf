@@ -5,7 +5,12 @@
 #____________________________________________________________
 
 data "intersight_organization_organization" "org_moid" {
-  name = var.organization
+  for_each = {
+    for v in [var.organization] : v => v if length(
+      regexall("[[:xdigit:]]{24}", var.organization)
+    ) == 0
+  }
+  name = each.value
 }
 
 #__________________________________________________________________
@@ -27,7 +32,11 @@ resource "intersight_vnic_eth_qos_policy" "ethernet_qos" {
   rate_limit     = var.rate_limit
   trust_host_cos = var.enable_trust_host_cos
   organization {
-    moid        = data.intersight_organization_organization.org_moid.results[0].moid
+    moid = length(
+      regexall("[[:xdigit:]]{24}", var.organization)
+      ) > 0 ? var.organization : data.intersight_organization_organization.org_moid[
+      var.organization].results[0
+    ].moid
     object_type = "organization.Organization"
   }
   dynamic "tags" {
