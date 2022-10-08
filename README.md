@@ -104,9 +104,6 @@ export TF_VAR_secretkeyfile="<secret-key-file-location>"
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_apikey"></a> [apikey](#input\_apikey) | Intersight API Key. | `string` | n/a | yes |
-| <a name="input_endpoint"></a> [endpoint](#input\_endpoint) | Intersight URL. | `string` | `"https://intersight.com"` | no |
-| <a name="input_secretkey"></a> [secretkey](#input\_secretkey) | Intersight Secret Key. | `string` | n/a | yes |
 | <a name="input_burst"></a> [burst](#input\_burst) | The burst traffic, in bytes, allowed on the vNIC.  Value can be between 1024-1000000. | `number` | `1024` | no |
 | <a name="input_cos"></a> [cos](#input\_cos) | Class of Service to be associated to the traffic on the virtual interface.  Value can be between 0-6. For FIAttached this should always be 0. | `number` | `0` | no |
 | <a name="input_description"></a> [description](#input\_description) | Description for the Policy. | `string` | `""` | no |
